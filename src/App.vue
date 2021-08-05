@@ -2237,7 +2237,7 @@ export default {
         fastUpdate() {
         
             let currentTime = new Date().getTime()
-            let delta = (currentTime - this.lastUpdateTime) / 1000
+            let delta = (currentTime - this.lastUpdateTime) / 10
             if (delta <= 0) {
                 this.setLastUpdateTime(currentTime)
                 return
@@ -2255,7 +2255,7 @@ export default {
             this.updateTimers()
             this.checkBoosts()
             
-            let autoEmcCount = Math.floor((this.timeSinceAutoEmc * 1000) / this.autoEmcInterval)
+            let autoEmcCount = Math.floor((this.timeSinceAutoEmc * 10) / this.autoEmcInterval)
             for (let i = 0; i < autoEmcCount; i++) this.performAutoEmc()
             if (autoEmcCount > 0) this.setTimeSinceAutoEmc(0)
             
